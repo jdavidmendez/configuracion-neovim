@@ -66,5 +66,8 @@
 		"constructor": "  [CONSTRUCTOR]",
 		"value": "  [VALUE]",
 		"enumMember": "  [ENUM MEM]"
-	}
+	},
+	"javascript.showUnused": true,
+	"javascript.suggest.paths": true,
+	"javascript.suggest.autoImports": true
 }
