@@ -39,6 +39,32 @@
 		"typescriptreact",
 		"javascriptreact"
 	],
-	"html.autoClosingTags": true
-	
+	"html.autoClosingTags": true,
+	"suggest.completionItemKindLabels": {
+		"method": "  [METHOD]",
+		"function": "  [FUNCTION]",
+		"variable": "[] [VARIABLE]",
+		"field": "  [FIELD] ",
+		"typeParameter": "<> [TYPE PARM]",
+		"constant": "  [CONST]",
+		"class": " פּ [CLASS]",
+		"interface": " 蘒[INTERFACE]",
+		"struct": "  [STRUCT]",
+		"event": "  [EVENT]",
+		"operator": "  [OPERATOR]",
+		"module": "  [MODULE]",
+		"property": "  [PROPERTY]",
+		"enum": " 練 [ENUM]",
+		"reference": "  [REFERENCE]",
+		"keyword": "  [KEYWORD]",
+		"file": "  [FILE]",
+		"folder": " ﱮ [FOLDER]",
+		"color": "  [COLOR]",
+		"unit": " 塞 [UNIT]",
+		"snippet": "  [SNIPPET]",
+		"text": "  [TEXT]",
+		"constructor": "  [CONSTRUCTOR]",
+		"value": "  [VALUE]",
+		"enumMember": "  [ENUM MEM]"
+	}
 }
