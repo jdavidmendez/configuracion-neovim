@@ -89,6 +89,10 @@ Plug 'mlaursen/vim-react-snippets'
 " Ultisnips React
 Plug 'SirVer/ultisnips'
 
+"Snipets React auto import
+" Plug 'ludovicchabant/vim-gutentags'
+" Plug 'kristijanhusak/vim-js-file-import', {'do': 'npm install'}
+
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
@@ -226,3 +230,4 @@ nmap <leader>x <Plug>vem_delete_buffer-
 "CONFIGURACION AUTOFORMATEO
 noremap <F3> :Autoformat<CR>
 nmap <Leader>f :Autoformat<CR>
+

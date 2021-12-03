@@ -1,0 +1,119 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/jdavidmendez/.config/nvim/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	/ac504cc4/
+/	init.vim	/^map \/  <Plug>(incsearch-forward)$/;"	m
+0	coc-settings.json	/^		"html",$/;"	s	array:html-css-support.enabledLanguages
+0	coc-settings.json	/^		"html",$/;"	s	array:html.filetypes
+1	coc-settings.json	/^		"vue",$/;"	s	array:html-css-support.enabledLanguages
+1	coc-settings.json	/^		"vue",$/;"	s	array:html.filetypes
+2	coc-settings.json	/^		"blade",$/;"	s	array:html-css-support.enabledLanguages
+2	coc-settings.json	/^		"blade",$/;"	s	array:html.filetypes
+3	coc-settings.json	/^		"handlebars",$/;"	s	array:html.filetypes
+3	coc-settings.json	/^		"htmldjango",$/;"	s	array:html-css-support.enabledLanguages
+4	coc-settings.json	/^		"htmldjango",$/;"	s	array:html.filetypes
+4	coc-settings.json	/^		"typescriptreact",$/;"	s	array:html-css-support.enabledLanguages
+5	coc-settings.json	/^		"javascriptreact"$/;"	s	array:html-css-support.enabledLanguages
+5	coc-settings.json	/^		"typescriptreact",$/;"	s	array:html.filetypes
+6	coc-settings.json	/^		"javascriptreact"$/;"	s	array:html.filetypes
+<C-t>	init.vim	/^imap <C-t> <Plug>(coc-snippets-expand)$/;"	m
+<F3>	init.vim	/^noremap <F3> :Autoformat<CR>$/;"	m
+<Leader>f	init.vim	/^nmap <Leader>f :Autoformat<CR>$/;"	m
+<Leader>q	init.vim	/^nmap <Leader>q :q<CR>$/;"	m
+<Leader>s	init.vim	/^nmap <Leader>s <Plug>(easymotion-s2)$/;"	m
+<Leader>w	init.vim	/^nmap <Leader>w :w<CR> "genera un chortcut para guardar usando espacio y la letra$/;"	m
+<Leader>wq	init.vim	/^nmap <Leader>wq :wq<CR>$/;"	m
+<c-space>	init.vim	/^  inoremap <c-space> <C-x><C-u>$/;"	m
+<c-space>	init.vim	/^  inoremap <silent><expr> <c-space> coc#refresh()$/;"	m
+<cr>	init.vim	/^  inoremap <silent><expr> <cr> complete_info(['selected'])['selected'] != -1 ? "\\<C-y>" : "\\<C/;"	m
+<leader>h	init.vim	/^nmap <leader>h <Plug>vem_move_buffer_left-$/;"	m
+<leader>l	init.vim	/^nmap <leader>l <Plug>vem_move_buffer_right-$/;"	m
+<leader>n	init.vim	/^nmap <leader>n <Plug>vem_next_buffer-$/;"	m
+<leader>p	init.vim	/^nmap <leader>p <Plug>vem_prev_buffer-$/;"	m
+<leader>rn	init.vim	/^nmap <leader>rn <Plug>(coc-rename)$/;"	m
+<leader>x	init.vim	/^nmap <leader>x <Plug>vem_delete_buffer-$/;"	m
+<space>e	init.vim	/^nnoremap <space>e :CocCommand explorer<CR>$/;"	m
+?	init.vim	/^map ?  <Plug>(incsearch-backward)$/;"	m
+class	coc-settings.json	/^		"class": " פּ [CLASS]",$/;"	s	object:suggest.completionItemKindLabels
+color	coc-settings.json	/^		"color": "  [COLOR]",$/;"	s	object:suggest.completionItemKindLabels
+configuracion-neovim	README.md	/^# configuracion-neovim$/;"	c
+constant	coc-settings.json	/^		"constant": "  [CONST]",$/;"	s	object:suggest.completionItemKindLabels
+constructor	coc-settings.json	/^		"constructor": "  [CONSTRUCTOR]",$/;"	s	object:suggest.completionItemKindLabels
+emmet.includeLanguages	coc-settings.json	/^	"emmet.includeLanguages": {"vue-html": "html", "javascript": "javascriptreact"},$/;"	o
+enum	coc-settings.json	/^		"enum": " 練 [ENUM]",$/;"	s	object:suggest.completionItemKindLabels
+enumMember	coc-settings.json	/^		"enumMember": "  [ENUM MEM]"$/;"	s	object:suggest.completionItemKindLabels
+event	coc-settings.json	/^		"event": "  [EVENT]",$/;"	s	object:suggest.completionItemKindLabels
+explorer.buffer.root.template	coc-settings.json	/^	"explorer.buffer.root.template": "[icon & 1] OPEN EDITORS",$/;"	s
+explorer.file.child.template	coc-settings.json	/^	"explorer.file.child.template": "[git | 2] [selection | clip | 1] [indent][icon | 1] [diagnosti/;"	s
+explorer.file.reveal.auto	coc-settings.json	/^	"explorer.file.reveal.auto": false,$/;"	b
+explorer.file.root.template	coc-settings.json	/^	"explorer.file.root.template": "[icon & 1] PROJECT ([root])",$/;"	s
+explorer.file.showHiddenFiles	coc-settings.json	/^	"explorer.file.showHiddenFiles": true,$/;"	b
+explorer.git.enable	coc-settings.json	/^	"explorer.git.enable": true,$/;"	b
+explorer.git.icon.status.added	coc-settings.json	/^	"explorer.git.icon.status.added": "✚",$/;"	s
+explorer.git.icon.status.deleted	coc-settings.json	/^	"explorer.git.icon.status.deleted": "✖",$/;"	s
+explorer.git.icon.status.ignored	coc-settings.json	/^	"explorer.git.icon.status.ignored": "☒",$/;"	s
+explorer.git.icon.status.mixed	coc-settings.json	/^	"explorer.git.icon.status.mixed": "*",$/;"	s
+explorer.git.icon.status.modified	coc-settings.json	/^	"explorer.git.icon.status.modified": "✹",$/;"	s
+explorer.git.icon.status.renamed	coc-settings.json	/^	"explorer.git.icon.status.renamed": "➜",$/;"	s
+explorer.git.icon.status.unmerged	coc-settings.json	/^	"explorer.git.icon.status.unmerged": "≠",$/;"	s
+explorer.git.icon.status.untracked	coc-settings.json	/^	"explorer.git.icon.status.untracked": "?",$/;"	s
+explorer.icon.enableNerdfont	coc-settings.json	/^	"explorer.icon.enableNerdfont": true,$/;"	b
+explorer.mouseMode	coc-settings.json	/^	"explorer.mouseMode": "singleclick",$/;"	s
+explorer.openAction.for.directory	coc-settings.json	/^	"explorer.openAction.for.directory": "expandOrCollapse",$/;"	s
+explorer.previewAction.onHover	coc-settings.json	/^	"explorer.previewAction.onHover": false,$/;"	b
+explorer.quitOnOpen	coc-settings.json	/^	"explorer.quitOnOpen": true,$/;"	b
+explorer.width	coc-settings.json	/^	"explorer.width": 35,$/;"	n
+field	coc-settings.json	/^		"field": "  [FIELD] ",$/;"	s	object:suggest.completionItemKindLabels
+file	coc-settings.json	/^		"file": "  [FILE]",$/;"	s	object:suggest.completionItemKindLabels
+folder	coc-settings.json	/^		"folder": " ﱮ [FOLDER]",$/;"	s	object:suggest.completionItemKindLabels
+function	coc-settings.json	/^		"function": "  [FUNCTION]",$/;"	s	object:suggest.completionItemKindLabels
+g:NERDSpaceDelims	init.vim	/^let g:NERDSpaceDelims = 1  " Agregar un espacio después del delimitador del comentario$/;"	v
+g:NERDTrimTrailingWhitespace	init.vim	/^let g:NERDTrimTrailingWhitespace = 1  " Quitar espacios al quitar comentario$/;"	v
+g:SuperTabDefaultCompletionType	init.vim	/^let g:SuperTabDefaultCompletionType = '<c-n>'$/;"	v
+g:airline#extensions#tabline#enabled	init.vim	/^let g:airline#extensions#tabline#enabled = 1  " Mostrar buffers abiertos (como pestañas)$/;"	v
+g:airline#extensions#tabline#fnamemod	init.vim	/^let g:airline#extensions#tabline#fnamemod = ':t'  " Mostrar sólo el nombre del archivo$/;"	v
+g:airline_powerline_fonts	init.vim	/^let g:airline_powerline_fonts = 1$/;"	v
+g:ale_echo_msg_error_str	init.vim	/^let g:ale_echo_msg_error_str = 'E'$/;"	v
+g:ale_echo_msg_format	init.vim	/^let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'$/;"	v
+g:ale_echo_msg_warning_str	init.vim	/^let g:ale_echo_msg_warning_str = 'W'$/;"	v
+g:coc_global_extensions	init.vim	/^let g:coc_global_extensions = [$/;"	v
+g:gruvbox_contrast_dark	init.vim	/^let g:gruvbox_contrast_dark$/;"	v
+g:incsearch#auto_nohlsearch	init.vim	/^let g:incsearch#auto_nohlsearch = 1$/;"	v
+g:indentLine_bufNameExclude	init.vim	/^let g:indentLine_bufNameExclude = ['NERD_tree.*', 'term:.*']$/;"	v
+g:indentLine_fileTypeExclude	init.vim	/^let g:indentLine_fileTypeExclude = ['text', 'sh', 'help', 'terminal']$/;"	v
+g:vem_tabline_show	init.vim	/^let g:vem_tabline_show = 2$/;"	v
+gd	init.vim	/^nmap <silent> gd <Plug>(coc-definition)$/;"	m
+gi	init.vim	/^nma <silent> gi <Plug>(coc-implementation)$/;"	m
+gr	init.vim	/^nma <silent> gr <Plug>(coc-references)$/;"	m
+gy	init.vim	/^nma <silent> gy <Plug>(coc-type-definition)$/;"	m
+html-css-support.enabledLanguages	coc-settings.json	/^	"html-css-support.enabledLanguages": [$/;"	a
+html.autoClosingTags	coc-settings.json	/^	"html.autoClosingTags": true,$/;"	b
+html.filetypes	coc-settings.json	/^	"html.filetypes": [$/;"	a
+interface	coc-settings.json	/^		"interface": " 蘒[INTERFACE]",$/;"	s	object:suggest.completionItemKindLabels
+javascript	coc-settings.json	/^	"emmet.includeLanguages": {"vue-html": "html", "javascript": "javascriptreact"},$/;"	s	object:emmet.includeLanguages
+javascript.showUnused	coc-settings.json	/^	"javascript.showUnused": true,$/;"	b
+javascript.suggest.autoImports	coc-settings.json	/^	"javascript.suggest.autoImports": true$/;"	b
+javascript.suggest.paths	coc-settings.json	/^	"javascript.suggest.paths": true,$/;"	b
+keyword	coc-settings.json	/^		"keyword": "  [KEYWORD]",$/;"	s	object:suggest.completionItemKindLabels
+mapleader	init.vim	/^let mapleader=" "$/;"	v
+method	coc-settings.json	/^		"method": "  [METHOD]",$/;"	s	object:suggest.completionItemKindLabels
+module	coc-settings.json	/^		"module": "  [MODULE]",$/;"	s	object:suggest.completionItemKindLabels
+operator	coc-settings.json	/^		"operator": "  [OPERATOR]",$/;"	s	object:suggest.completionItemKindLabels
+property	coc-settings.json	/^		"property": "  [PROPERTY]",$/;"	s	object:suggest.completionItemKindLabels
+reference	coc-settings.json	/^		"reference": "  [REFERENCE]",$/;"	s	object:suggest.completionItemKindLabels
+snippet	coc-settings.json	/^		"snippet": "  [SNIPPET]",$/;"	s	object:suggest.completionItemKindLabels
+struct	coc-settings.json	/^		"struct": "  [STRUCT]",$/;"	s	object:suggest.completionItemKindLabels
+suggest.completionItemKindLabels	coc-settings.json	/^	"suggest.completionItemKindLabels": {$/;"	o
+text	coc-settings.json	/^		"text": "  [TEXT]",$/;"	s	object:suggest.completionItemKindLabels
+typeParameter	coc-settings.json	/^		"typeParameter": "<> [TYPE PARM]",$/;"	s	object:suggest.completionItemKindLabels
+unit	coc-settings.json	/^		"unit": " 塞 [UNIT]",$/;"	s	object:suggest.completionItemKindLabels
+value	coc-settings.json	/^		"value": "  [VALUE]",$/;"	s	object:suggest.completionItemKindLabels
+variable	coc-settings.json	/^		"variable": "[] [VARIABLE]",$/;"	s	object:suggest.completionItemKindLabels
+vue-html	coc-settings.json	/^	"emmet.includeLanguages": {"vue-html": "html", "javascript": "javascriptreact"},$/;"	s	object:emmet.includeLanguages
