@@ -16,6 +16,8 @@ set laststatus=2
 "set noshowmode "permite ocultar el texto que indica el modo
 set termguicolors  " Activa true colors en la terminal
 set updatetime=250 " actualiza la barra lateral cada 250 milisegundos
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
 call plug#begin('~/.vim/plugged')
 
 " temas
@@ -33,7 +35,7 @@ Plug 'Yggdroot/indentLine' " muestra lineas verticales en espaciados
 
 "AUTO COMPLETADO COC
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 "motor analizador de codigo
 Plug 'w0rp/ale'
@@ -85,6 +87,7 @@ Plug 'Chiel92/vim-autoformat'
 
 " React code snippets
 Plug 'mlaursen/vim-react-snippets'
+Plug 'mlaursen/rmd-vim-snippets'
 
 " Ultisnips React
 Plug 'SirVer/ultisnips'
@@ -98,7 +101,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
-
+Plug 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' }
 call plug#end()
 
 "**** TEMA INSTALADO
@@ -106,8 +109,8 @@ colorscheme gruvbox
 let g:gruvbox_contrast_dark
 
 "**** CONFIGURACION DE BARRA NAVEGACIÓN ARCHIVOS
-"let NERDTreeQuitOnOpen=1
-"let g:NERDTreeChDirMode = 2  " Cambia el directorio actual al nodo padre actual
+let NERDTreeQuitOnOpen=1
+let g:NERDTreeChDirMode = 2  " Cambia el directorio actual al nodo padre actual
 
 "**** CONFIGURACION DE AIRLINE (REEMPLAZA LA BARRA INFERIOR CON NUEVO DISEÑO)
 let g:airline#extensions#tabline#enabled = 1  " Mostrar buffers abiertos (como pestañas)
@@ -121,36 +124,36 @@ let g:indentLine_fileTypeExclude = ['text', 'sh', 'help', 'terminal']
 let g:indentLine_bufNameExclude = ['NERD_tree.*', 'term:.*']
 
 "CONFIGURACION DE AUTOCOMPLETADO COC
-autocmd FileType python let b:coc_suggest_disable = 1
-autocmd FileType javascript let b:coc_suggest_disable = 1
-autocmd FileType scss setl iskeyword+=@-@
-imap <C-t> <Plug>(coc-snippets-expand)
+" autocmd FileType python let b:coc_suggest_disable = 1
+" autocmd FileType javascript let b:coc_suggest_disable = 1
+" autocmd FileType scss setl iskeyword+=@-@
+" imap <C-t> <Plug>(coc-snippets-expand)
 nnoremap <space>e :CocCommand explorer<CR>
 
 " coc config
 let g:coc_global_extensions = [
-  \ 'coc-snippets',
-  \ 'coc-pairs',
-  \ 'coc-tsserver',
-  \ 'coc-eslint', 
-  \ 'coc-prettier', 
-  \ 'coc-json',
-  \ 'coc-angular',
-  \ 'coc-explorer',
-  \ 'coc-highlight',
-  \ 'coc-html',
-  \ 'coc-css',
-  \ 'coc-html-css-support',
-  \ 'coc-cssmodules',
-  \ 'coc-scssmodules',
-  \ 'coc-htmlhint',
-  \ 'coc-tabnine',
-  \ 'coc-thrift-syntax-support',
-  \ 'coc-git',
-  \ 'coc-emmet',
-  \ 'coc-vimlsp',
-  \ 'coc-yank'
-  \ ]
+      \ 'coc-snippets',
+      \ 'coc-pairs',
+      \ 'coc-tsserver',
+      \ 'coc-eslint',
+      \ 'coc-prettier',
+      \ 'coc-json',
+      \ 'coc-angular',
+      \ 'coc-explorer',
+      \ 'coc-highlight',
+      \ 'coc-html',
+      \ 'coc-css',
+      \ 'coc-html-css-support',
+      \ 'coc-cssmodules',
+      \ 'coc-scssmodules',
+      \ 'coc-htmlhint',
+      \ 'coc-tabnine',
+      \ 'coc-thrift-syntax-support',
+      \ 'coc-emmet',
+      \ 'coc-vimlsp',
+      \ 'coc-yank',
+      \ 'coc-stylelintplus',
+      \ ]
 
 "CONFIGURACION SUPERTAB
 " Invertir direccion de navegacion (de arriba a abajo)
@@ -180,11 +183,14 @@ let g:NERDSpaceDelims = 1  " Agregar un espacio después del delimitador del com
 let g:NERDTrimTrailingWhitespace = 1  " Quitar espacios al quitar comentario
 
 " ****CONFIGURACIONES DE COMANDOS****
-
+"  ================================================================
+" UltiSnips
+" ================================================================
+let g:UltiSnipsExpandTrigger='<c-space>'
 "indica cual es la tecla lider
 let mapleader=" "
 
-" CONFIGURACION EASYMOTION 
+" CONFIGURACION EASYMOTION
 nmap <Leader>s <Plug>(easymotion-s2)
 
 
@@ -199,18 +205,39 @@ nma <silent> gy <Plug>(coc-type-definition)
 nma <silent> gi <Plug>(coc-implementation)
 nma <silent> gr <Plug>(coc-references)
 nmap <leader>rn <Plug>(coc-rename)
-
-if &filetype == "javascript" || &filetype == "python"
-  inoremap <c-space> <C-x><C-u>
-else
-  inoremap <silent><expr> <c-space> coc#refresh()
-endif
+" fix-it -- show preview window of fixable things and choose fix
+nmap <silent>fi <Plug>(coc-codeaction)
+" fix eslint (also any other fixable things. Mostly used for React hook dependencies)
+nmap <silent>fe <Plug>(coc-fix-current)
+" fix eslint (all)
+nmap <silent>fE :<C-u>CocCommand eslint.executeAutofix<cr>
+" fix imports
+nmap <silent>fI :<C-u>CocCommand tsserver.organizeImports<cr>
+nmap <silent> ff <Plug>(coc-format)
 
 " Autocompletar elemento seleccionado de la lista
-
 if exists('*complete_info')
-  inoremap <silent><expr> <cr> complete_info(['selected'])['selected'] != -1 ? "\<C-y>" : "\<C-g>u\<CR>"
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" quickly jump between diagnostics
+nmap <silent> <C-k> <Plug>(coc-diagnostic-prev)
+nmap <silent> <C-j> <Plug>(coc-diagnostic-next)
 
 "COMANDOS BUSQUEDA INCREMENTAL
 map /  <Plug>(incsearch-forward)
@@ -229,5 +256,17 @@ nmap <leader>x <Plug>vem_delete_buffer-
 
 "CONFIGURACION AUTOFORMATEO
 noremap <F3> :Autoformat<CR>
-nmap <Leader>f :Autoformat<CR>
+nmap <Leader>f :Autoformat<CR>c
 
+" ================================================================
+" vim-closetag
+" ================================================================
+" Update closetag to also work on js and html files, don't want ts since <> is used for type args
+let g:closetag_filenames='*.html,*.js,*.jsx,*.tsx'
+let g:closetag_regions = {
+      \ 'typescript': 'jsxRegion',
+      \ 'typescriptreact': 'jsxRegion,tsxRegion',
+      \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+      \ 'javascript.jsx': 'jsxRegion',
+      \ 'javascriptreact': 'jsxRegion',
+      \ }
