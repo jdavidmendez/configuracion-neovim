@@ -18,6 +18,10 @@ set termguicolors  " Activa true colors en la terminal
 set updatetime=250 " actualiza la barra lateral cada 250 milisegundos
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
+set ai "Auto indent
+set si "Smart indent
+set nowrap
+
 call plug#begin('~/.vim/plugged')
 
 " temas
@@ -25,16 +29,18 @@ Plug 'morhetz/gruvbox'
 
 "IDE
 Plug 'easymotion/vim-easymotion'
-"Plug 'scrooloose/nerdtree'
 Plug 'christoomey/vim-tmux-navigator'
 
-Plug 'vim-airline/vim-airline' "barra de estado con intregracion varios pluggins
-Plug 'vim-airline/vim-airline-themes'  " Temas para airline
+"barra de estado con intregracion varios pluggins
+Plug 'vim-airline/vim-airline' 
 
-Plug 'Yggdroot/indentLine' " muestra lineas verticales en espaciados
+" Temas para airline
+Plug 'vim-airline/vim-airline-themes'  
+
+" muestra lineas verticales en espaciados
+Plug 'Yggdroot/indentLine' 
 
 "AUTO COMPLETADO COC
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 "motor analizador de codigo
@@ -92,17 +98,31 @@ Plug 'mlaursen/rmd-vim-snippets'
 " Ultisnips React
 Plug 'SirVer/ultisnips'
 
-"Snipets React auto import
-" Plug 'ludovicchabant/vim-gutentags'
-" Plug 'kristijanhusak/vim-js-file-import', {'do': 'npm install'}
-
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
 Plug 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' }
+
+" allows \bo to close all buffers except current focus
+Plug 'vim-scripts/BufOnly.vim'
+
+Plug 'hail2u/vim-css3-syntax' " updates vim's built-in css to support CSS3
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'pangloss/vim-javascript'
+
+" I don't want the snippets provided by this package as I like my own vim-react-snippets
+Plug 'HerringtonDarkholme/yats.vim', {'do': 'rm -rf UltiSnips'}
+Plug 'maxmellon/vim-jsx-pretty'
+
+" easy comments with `gc` or `gcc`
+Plug 'tpope/vim-commentary' 
+
+
+
 call plug#end()
+
 
 "**** TEMA INSTALADO
 colorscheme gruvbox
@@ -130,33 +150,33 @@ let g:indentLine_bufNameExclude = ['NERD_tree.*', 'term:.*']
 " imap <C-t> <Plug>(coc-snippets-expand)
 nnoremap <space>e :CocCommand explorer<CR>
 
-" coc config
+" coc extensiones
 let g:coc_global_extensions = [
-      \ 'coc-snippets',
-      \ 'coc-pairs',
-      \ 'coc-tsserver',
-      \ 'coc-eslint',
-      \ 'coc-prettier',
-      \ 'coc-json',
-      \ 'coc-angular',
-      \ 'coc-explorer',
-      \ 'coc-highlight',
-      \ 'coc-html',
-      \ 'coc-css',
-      \ 'coc-html-css-support',
-      \ 'coc-cssmodules',
-      \ 'coc-scssmodules',
-      \ 'coc-htmlhint',
-      \ 'coc-tabnine',
-      \ 'coc-thrift-syntax-support',
-      \ 'coc-emmet',
-      \ 'coc-vimlsp',
-      \ 'coc-yank',
-      \ 'coc-stylelintplus',
-      \ ]
+                  \ 'coc-snippets',
+                  \ 'coc-pairs',
+                  \ 'coc-tsserver',
+                  \ 'coc-eslint',
+                  \ 'coc-prettier',
+                  \ 'coc-json',
+                  \ 'coc-angular',
+                  \ 'coc-explorer',
+                  \ 'coc-highlight',
+                  \ 'coc-html',
+                  \ 'coc-css',
+                  \ 'coc-html-css-support',
+                  \ 'coc-cssmodules',
+                  \ 'coc-scssmodules',
+                  \ 'coc-htmlhint',
+                  \ 'coc-tabnine',
+                  \ 'coc-thrift-syntax-support',
+                  \ 'coc-emmet',
+                  \ 'coc-vimlsp',
+                  \ 'coc-yank',
+                  \ 'coc-stylelintplus',
+                  \ ]
 
 "CONFIGURACION SUPERTAB
-" Invertir direccion de navegacion (de arriba a abajo)
+" Invertir direccion de navegacion del autocompletado (de arriba a abajo)
 let g:SuperTabDefaultCompletionType = '<c-n>'
 
 
@@ -167,21 +187,21 @@ let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 
-"**** CONFIGURACION KITE
-" todos los lenguajes que soporta Kite
-" let g:kite_supported_languages = ['*']
-"para que kite solo autocomplete en los siguientes lenguajes
-"let g:kite_supported_languages = ['python', 'javascript', 'go']
-
-
-"****CONFIGURACION BUSQUEDA INCRMENTAL
+"****CONFIGURACION BUSQUEDA INCREMENTAL
 " Quitar resaltado luego de buscar
 let g:incsearch#auto_nohlsearch = 1
 
 "**** CONFIGURACIONES NERDCOMMENTER
 let g:NERDSpaceDelims = 1  " Agregar un espacio después del delimitador del comentario
 let g:NERDTrimTrailingWhitespace = 1  " Quitar espacios al quitar comentario
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
 
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" Enable NERDCommenterToggle to check all selected lines is commented or not 
+let g:NERDToggleCheckAllLines = 1
 " ****CONFIGURACIONES DE COMANDOS****
 "  ================================================================
 " UltiSnips
@@ -217,17 +237,17 @@ nmap <silent> ff <Plug>(coc-format)
 
 " Autocompletar elemento seleccionado de la lista
 if exists('*complete_info')
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+      inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 else
-  imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+      imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
 function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
+      if (index(['vim','help'], &filetype) >= 0)
+            execute 'h '.expand('<cword>')
+      else
+            call CocAction('doHover')
+      endif
 endfunction
 
 
@@ -259,14 +279,24 @@ noremap <F3> :Autoformat<CR>
 nmap <Leader>f :Autoformat<CR>c
 
 " ================================================================
+" => Moving around, tabs, windows and buffers
+" ================================================================
+" Close all buffers except current
+map <leader>bo :BufOnly<cr>
+" Remember info about open buffers on close
+set viminfo^=%
+
+" ================================================================
 " vim-closetag
 " ================================================================
 " Update closetag to also work on js and html files, don't want ts since <> is used for type args
 let g:closetag_filenames='*.html,*.js,*.jsx,*.tsx'
 let g:closetag_regions = {
-      \ 'typescript': 'jsxRegion',
-      \ 'typescriptreact': 'jsxRegion,tsxRegion',
-      \ 'typescript.tsx': 'jsxRegion,tsxRegion',
-      \ 'javascript.jsx': 'jsxRegion',
-      \ 'javascriptreact': 'jsxRegion',
-      \ }
+                  \ 'typescript': 'jsxRegion',
+                  \ 'typescriptreact': 'jsxRegion,tsxRegion',
+                  \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+                  \ 'javascript.jsx': 'jsxRegion',
+                  \ 'javascriptreact': 'jsxRegion',
+                  \ }
+
+
