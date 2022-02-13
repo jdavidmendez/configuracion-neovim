@@ -34,13 +34,13 @@ Plug 'easymotion/vim-easymotion'
 Plug 'christoomey/vim-tmux-navigator'
 
 "barra de estado con intregracion varios pluggins
-Plug 'vim-airline/vim-airline' 
+Plug 'vim-airline/vim-airline'
 
 " Temas para airline
-Plug 'vim-airline/vim-airline-themes'  
+Plug 'vim-airline/vim-airline-themes'
 
 " muestra lineas verticales en espaciados
-Plug 'Yggdroot/indentLine' 
+Plug 'Yggdroot/indentLine'
 
 "AUTO COMPLETADO COC
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -119,10 +119,14 @@ Plug 'HerringtonDarkholme/yats.vim', {'do': 'rm -rf UltiSnips'}
 Plug 'maxmellon/vim-jsx-pretty'
 
 " easy comments with `gc` or `gcc`
-Plug 'tpope/vim-commentary' 
+Plug 'tpope/vim-commentary'
 
+"Telescope
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
-
+"terminal flotante
+Plug 'voldikss/vim-floaterm'
 call plug#end()
 
 
@@ -202,7 +206,7 @@ let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
 
-" Enable NERDCommenterToggle to check all selected lines is commented or not 
+" Enable NERDCommenterToggle to check all selected lines is commented or not
 let g:NERDToggleCheckAllLines = 1
 " ****CONFIGURACIONES DE COMANDOS****
 "  ================================================================
@@ -306,4 +310,29 @@ let g:closetag_regions = {
                   \ 'javascriptreact': 'jsxRegion',
                   \ }
 
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
+"configura las visualizaciones para vim-javascript, habilita el cambio a
+"simbolos de algunos componentes en javascript como lo son arrow functions
+" let g:javascript_conceal_function             = "ƒ"
+" let g:javascript_conceal_null                 = "ø"
+" let g:javascript_conceal_this                 = "@"
+" let g:javascript_conceal_return               = "⇚"
+" let g:javascript_conceal_undefined            = "¿"
+" let g:javascript_conceal_NaN                  = "ℕ"
+" let g:javascript_conceal_prototype            = "¶"
+" let g:javascript_conceal_static               = "•"
+" let g:javascript_conceal_super                = "Ω"
+" let g:javascript_conceal_arrow_function       = "⇒"
+" let g:javascript_conceal_noarg_arrow_function = "🞅"
+" let g:javascript_conceal_underscore_arrow_function = "🞅"
+
+"configuración terminal toggle
+let g:floaterm_keymap_new    = '<F5>'
+let g:floaterm_keymap_prev   = '<F6>'
+let g:floaterm_keymap_next   = '<F7>'
+let g:floaterm_keymap_toggle = '<F8>'
