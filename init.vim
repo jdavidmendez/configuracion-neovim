@@ -21,6 +21,8 @@ set shortmess+=c
 set ai "Auto indent
 set si "Smart indent
 set nowrap
+" Set to auto read when a file is changed from the outside
+set autoread
 
 call plug#begin('~/.vim/plugged')
 
@@ -207,8 +209,13 @@ let g:NERDToggleCheckAllLines = 1
 " UltiSnips
 " ================================================================
 let g:UltiSnipsExpandTrigger='<c-space>'
+
+" autosabe toggle automatico al inicio
+let g:auto_save = 1  " enable AutoSave on Vim startup
+
 "indica cual es la tecla lider
 let mapleader=" "
+
 
 " CONFIGURACION EASYMOTION
 nmap <Leader>s <Plug>(easymotion-s2)
