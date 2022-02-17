@@ -286,8 +286,8 @@ nmap <leader>n <Plug>vem_next_buffer-
 nmap <leader>x <Plug>vem_delete_buffer-
 
 "CONFIGURACION AUTOFORMATEO
-noremap <F3> :Autoformat<CR>
-nmap <Leader>f :Autoformat<CR>c
+" noremap <F3> :Autoformat<CR>
+" nmap <Leader>f :Autoformat<CR>c
 
 " ================================================================
 " => Moving around, tabs, windows and buffers
