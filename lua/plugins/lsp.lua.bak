@@ -1,5 +1,5 @@
 return {
-	
+
 	-- neodev
 	{
 		"folke/neodev.nvim",
