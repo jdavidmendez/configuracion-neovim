@@ -15,3 +15,6 @@ vim.keymap.set("n", "<leader>2", "<cmd>2ToggleTerm<cr>", { desc = "ToggleTerm 2"
 vim.keymap.set("n", "<leader>3", "<cmd>3ToggleTerm<cr>", { desc = "ToggleTerm 3" })
 vim.keymap.set("n", "<leader>4", "<cmd>4ToggleTerm<cr>", { desc = "ToggleTerm 4" })
 vim.keymap.set("n", "<leader>5", "<cmd>5ToggleTerm<cr>", { desc = "ToggleTerm 5" })
+
+--ASToggle
+vim.keymap.set("n", "<leader>n", ":ASToggle<CR>", { desc = "ASToggle" })
